@@ -30,5 +30,9 @@ class AppServiceProvider extends ServiceProvider
       setLocale(LC_ALL, 'id_ID.UTF-8');
       Carbon::setLocale('id_ID.UTF-8');
       date_default_timezone_set('Asia/Jakarta');
+	if(config('app.env') === 'production') {
+          \URL::forceScheme('https');
+      }
+
     }
 }
