@@ -13,10 +13,10 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('dashboard')}}">
+      <a class="nav-link" href="{{route('tour')}}">
         <i class="icon-picture menu-icon"></i>
         <span class="menu-title">Pariwisata</span>
-          @if(Request::is('pariwisata'))
+          @if(Request::is('pariwisata') || Request::is('pariwisata/tambah') || Request::is('pariwisata/*'))
         <span class="badge badge-info">P</span>
         @endif
       </a>
