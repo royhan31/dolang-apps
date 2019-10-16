@@ -46,12 +46,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-      if ($request->expectsJson()) {
-        return response()->json([
-          'message' => $exception->getMessage(),
-          'status' => false
-        ], 401);
-      }
+      // if ($request->expectsJson()) {
+      //   return response()->json([
+      //     'message' => $exception->getMessage(),
+      //     'status' => false
+      //   ], 401);
+      // }
 
       // $guard = array_get($exception->guards(),0);
       // switch ($guard) {

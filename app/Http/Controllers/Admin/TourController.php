@@ -14,7 +14,7 @@ class TourController extends Controller
   }
 
   public function index(){
-    $tours = Tour::orderBy('id')->paginate(8);
+    $tours = Tour::orderBy('id','DESC')->paginate(8);
     return view('home.tour.index', compact('tours'));
   }
 
@@ -57,4 +57,13 @@ class TourController extends Controller
     return view('home.tour.detail', compact('tour'));
   }
 
+  public function edit(Tour $tour){
+    return view('home.tour.detail', compact('tour'));
+  }
+
+  public function update(Request $request, Tour $tour){
+
+    return redirect()->route('tour')->with('success','Wisata berhasil diubah');
+
+  }
 }

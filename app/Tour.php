@@ -11,4 +11,8 @@ class Tour extends Model
     public function panoramas(){
       return $this->hasMany(Panorama::class,'tour_id','id');
     }
+
+    public function comments(){
+      return $this->hasMany(Comment::class,'tour_id','id');
+    }
 }

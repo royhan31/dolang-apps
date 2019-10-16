@@ -8,4 +8,6 @@ class Panorama extends Model
 {
     protected $guarded = [];
     public $timestamps = false;
+
+    protected $hidden = ['tour_id','id'];
 }

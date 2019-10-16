@@ -10,7 +10,7 @@
   </nav>
 </div>
 <div class="card mt-5">
-    <img class="card-img-top" src="{{ asset('images/'.$tour->image) }}" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('images/'.$tour->image) }}" width="985px" height="500px" alt="Card image cap">
       <div class="col-md-12">
       <div class="card-body">
         <div class="row">
