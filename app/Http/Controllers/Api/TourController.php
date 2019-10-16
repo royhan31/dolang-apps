@@ -19,7 +19,7 @@ class TourController extends Controller
         'category' => $tour->category,
         'image' => $tour->image,
         'longitude' => $tour->longitude,
-        'latitude' => $tour->latitude,
+        'latitude' => $tour->latitude
       ];
     }
     return response()->json([
@@ -30,6 +30,9 @@ class TourController extends Controller
   }
 
   public function show(Tour $tour){
+    $tour->update([
+      'read' => $tour->read+1
+    ]);
     $comments = Comment::all();
     $results = array();
     foreach ($comments as $comment) {
@@ -40,7 +43,7 @@ class TourController extends Controller
       ];
     }
     return response()->json([
-      'message' => 'Berhasil',
+      'message' => 'success',
       'status' => true,
       'data' => [
         'id' => $tour->id,
@@ -50,6 +53,7 @@ class TourController extends Controller
         'region' => $tour->region,
         'price' => $tour->price,
         'description' => $tour->description,
+        'read' => $tour->read,
         'image' => $tour->image,
         'longitude' => $tour->longitude,
         'latitude' => $tour->latitude,
@@ -104,6 +108,26 @@ class TourController extends Controller
       'status' => true,
       'message' => 'Success',
       'data' => $result
+    ], 200);
+  }
+
+  public function popular(){
+    $tours = Tour::orderBy('read','DESC')->get();
+    $result = array();
+    foreach ($tours as $tour) {
+      $result[] = [
+        'id' => $tour->id,
+        'name' => $tour->name,
+        'category' => $tour->category,
+        'image' => $tour->image,
+        'longitude' => $tour->longitude,
+        'latitude' => $tour->latitude,
+      ];
+    }
+    return response()->json([
+      'message' => 'Berhasil',
+      'status' => true,
+      'data' => $result,
     ], 200);
   }
 }

@@ -7,6 +7,8 @@
 <script src="{{ asset('assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 <script src="{{ asset('assets/vendors/summernote/dist/summernote-bs4.min.js')}}"></script>
 <script src="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+<script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
 
 <!-- End plugin js for this page-->
 <!-- inject:js -->
@@ -23,6 +25,7 @@
 <script src="{{ asset('assets/js/bt-maxLength.js')}}"></script>
 <script src="{{ asset('assets/js/editorDemo.js')}}"></script>
 <script src="{{ asset('assets/js/owl-carousel.js')}}"></script>
+<script src="{{ asset('assets/js/data-table.js')}}"></script>
 <!-- End custom js for this page-->
 
 

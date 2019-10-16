@@ -25,6 +25,11 @@ Route::get('pariwisata','Admin\TourController@index')->name('tour');
 Route::get('pariwisata/detail/{tour}','Admin\TourController@show')->name('tour.show');
 Route::get('pariwisata/tambah','Admin\TourController@create')->name('tour.create');
 Route::post('pariwisata/tambah','Admin\TourController@store')->name('tour.store');
+Route::post('pariwisata/{tour}','Admin\TourController@destroy')->name('tour.destroy');
+Route::get('pariwisata/edit/{tour}','Admin\TourController@edit')->name('tour.edit');
+Route::get('pengguna','Admin\UserController@index')->name('users');
+Route::get('komentar','Admin\UserController@comment')->name('comment');
+
 
 
 

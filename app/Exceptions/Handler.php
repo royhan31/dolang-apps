@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -63,6 +66,19 @@ class Handler extends ExceptionHandler
       //     $login = 'login';
       //     break;
       // }
+      if ($exception instanceof ModelNotFoundException) {
+        return response()->json([
+          'message' => "Not Found",
+          'status' => false,
+        ], 404);
+      }
+
+      if ($exception instanceof NotFoundHttpException) {
+        return response()->json([
+          'message' => "Not Found",
+          'status' => false,
+        ], 404);
+      }
         return parent::render($request, $exception);
     }
 }

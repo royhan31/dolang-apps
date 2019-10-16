@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Tour;
 use App\Panorama;
+use Storage;
 
 class TourController extends Controller
 {
@@ -55,15 +56,31 @@ class TourController extends Controller
 
   public function show(Tour $tour){
     return view('home.tour.detail', compact('tour'));
+
   }
 
   public function edit(Tour $tour){
-    return view('home.tour.detail', compact('tour'));
+    return view('home.tour.edit', compact('tour'));
   }
 
   public function update(Request $request, Tour $tour){
 
     return redirect()->route('tour')->with('success','Wisata berhasil diubah');
 
+  }
+
+  public function destroy(Tour $tour){
+    $image_path = $tour->image;
+    if (Storage::exists($image_path)) {
+        Storage::delete($image_path);
+    }
+    foreach ($tour->panoramas as $panorama) {
+      $panorama_path = $panorama->path;
+      if (Storage::exists($panorama_path)) {
+          Storage::delete($panorama_path);
+      }
+    }
+    $tour->delete();
+    return redirect()->route('tour')->with('success','Wisata berhasil dihapus');
   }
 }

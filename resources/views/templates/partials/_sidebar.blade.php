@@ -22,7 +22,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('dashboard')}}">
+      <a class="nav-link" href="{{route('users')}}">
         <i class="icon-people menu-icon"></i>
         <span class="menu-title">Pengguna</span>
           @if(Request::is('pengguna'))
@@ -31,7 +31,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('dashboard')}}">
+      <a class="nav-link" href="{{route('comment')}}">
         <i class="icon-bubble menu-icon"></i>
         <span class="menu-title">Komentar</span>
           @if(Request::is('komentar'))

@@ -9,6 +9,13 @@
     </ol>
   </nav>
 </div>
+@if(session()->has('success'))
+<div class="row col-12 mt-3">
+     <div class="alert alert-success" role="alert">
+         <strong>{{ session()->get('success') }}</strong>
+     </div>
+   </div>
+  @endif
 <div class="row mt-4">
     <div class="col-12">
       <div class="card">
@@ -36,7 +43,7 @@
                   </figure>
                     </a>
                   <div class="float-right">
-                    <button type="button" class="btn btn-warning btn-sm"> <span class="icon-pencil"></span> </button>
+                    <button type="button" onclick="window.location='{{route("tour.edit", $tour)}}'" class="btn btn-warning btn-sm"> <span class="icon-pencil"></span> </button>
                     <button type="button" class="btn btn-danger btn-sm" data-target="#hapus{{$tour->id}}" data-toggle="modal"> <span class="icon-trash"></span> </button>
                   </div>
                 </div>
@@ -49,7 +56,7 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <form action="" method="post">
+                      <form action="{{route('tour.destroy', $tour)}}" method="post">
                         @csrf
                       <div class="modal-body">
                         <div class="form-group">
@@ -73,4 +80,22 @@
       </div>
     </div>
   </div>
+
+  <script>
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove();
+  });
+}, 5000);
+  </script>
+  <script>
+  function isNumberKey(evt)
+    {
+       var charCode = (evt.which) ? evt.which : event.keyCode
+       if (charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+
+       return true;
+    }
+  </script>
 @endsection
