@@ -26,6 +26,7 @@
 <script src="{{ asset('assets/js/editorDemo.js')}}"></script>
 <script src="{{ asset('assets/js/owl-carousel.js')}}"></script>
 <script src="{{ asset('assets/js/data-table.js')}}"></script>
+<script src="{{ asset('assets/js/tooltips.js')}}"></script>
 <!-- End custom js for this page-->
 
 

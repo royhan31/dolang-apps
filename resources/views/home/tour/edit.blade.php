@@ -5,7 +5,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-custom">
       <li class="breadcrumb-item"><a href="{{route('tour')}}">Pariwisata</a></li>
-      <li class="breadcrumb-item active" aria-current="page"><span>Tambah</span></li>
+      <li class="breadcrumb-item active" aria-current="page"><span>Edit</span></li>
     </ol>
   </nav>
 </div>
@@ -15,7 +15,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <form class="cmxform" id="create-tours" method="post" action="{{route('tour.store')}}" enctype="multipart/form-data">
+            <form class="cmxform" id="update-tours" method="post" action="{{route('tour.update', $tour)}}" enctype="multipart/form-data">
               @csrf
               <fieldset>
               <div class="form-group">
@@ -94,7 +94,7 @@
                           <img src="{{ asset('images/'.$tour->panoramas[$i]->path) }}" alt="sample" width="450" height="300"/>
                           <div class="card-img-overlay d-flex">
                             <div class="mt-auto text-center w-100">
-                            <button type="button" class="btn btn-danger btn-sm" data-target="#hapus{{$tour->panoramas[$i]->id}}" data-toggle="modal">Hapus</button>
+                            <button type="button" data-placement="bottom" title="Hapus Panorama" class="btn btn-danger btn-sm" data-target="#hapus{{$tour->panoramas[$i]->id}}" data-toggle="modal"><span class="icon-trash"> </span></button>
                             </div>
                           </div>
                         </div>
@@ -124,7 +124,7 @@
                  </div>
                  <div class="form-group col-6">
                     <label>Panorama</label>
-                    <input type="file" name="panorama[]" id="panorama" class="file-upload-default" accept="image/*" multiple="multiple" required>
+                    <input type="file" name="panorama[]" id="panorama" class="file-upload-default" accept="image/*" multiple="multiple">
                     <div class="input-group col-xs-12">
                       <input type="text" class="form-control file-upload-info" disabled placeholder="Pilih Panorama">
                       <span class="input-group-append">
@@ -136,17 +136,17 @@
                 <div class="row mt-4">
                   <div class="form-group col-4">
                     <label for="name">Longitude</label>
-                    <input type="text" id="long" name="long" class="form-control" value="{{ old('longitude') }}" placeholder="Longitude">
+                    <input type="text" id="long" name="long" class="form-control" value="{{ old('longitude', $tour->longitude) }}" placeholder="Longitude">
                   </div>
                   <div class="form-group col-4">
                     <label for="name">Latitude</label>
-                    <input type="text" id="lat" name="lat" class="form-control" value="{{ old('latitude') }}" placeholder="Latitude">
+                    <input type="text" id="lat" name="lat" class="form-control" value="{{ old('latitude', $tour->latitude) }}" placeholder="Latitude">
                   </div>
                 </div>
                 <div class="mb-4">
                   <div id="map2" class="dashboard-map"></div>
                 </div>
-                <input class="btn btn-primary" type="submit" value="Submit">
+                <input class="btn btn-primary" type="submit" value="Simpan">
               </fieldset>
             </form>
           </div>
@@ -166,7 +166,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form action="" method="post">
+          <form action="{{route('panorama.destroy', $panorama)}}" method="post">
             @csrf
           <div class="modal-body">
             <div class="form-group">
@@ -223,7 +223,7 @@ return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
   		maxZoom: 18,
   		id: 'mapbox.streets'
   	}).addTo(map);
-		var myMarker = L.marker([-6.894006,109.377652], {draggable: true})
+		var myMarker = L.marker([{{$tour->latitude}},{{$tour->longitude}}], {draggable: true})
 		.addTo(map)
     .on('dragend', function(e) {
       var coord = String(myMarker.getLatLng()).split(',');

@@ -30,12 +30,16 @@
                 <div class="form-group col-4">
                   <label>Ketegori</label>
                   <select name="category" class="form-control">
-                    <option>Bukit</option>
-                    <option>Curug</option>
-                    <option>Kolam Renang</option>
-                    <option>Pantai</option>
-                    <option>Taman</option>
-
+                    <option value="Bukit"
+                      {{old('category') == 'Bukit' ? 'selected' : ''}}>Bukit</option>
+                    <option value="Curug"
+                      {{old('category') == 'Curug' ? 'selected' : ''}}>Curug</option>
+                    <option value="Kolam Renang"
+                      {{old('category') == 'Kolam Renang' ? 'selected' : ''}}>Kolam Renang</option>
+                    <option value="Pantai"
+                      {{old('category') == 'Pantai' ? 'selected' : ''}}>Pantai</option>
+                    <option value="Taman"
+                      {{old('category') == 'Taman' ? 'selected' : ''}}>Taman</option>
                   </select>
                 </div>
                 <div class="form-group col-4">
@@ -60,12 +64,12 @@
                 </div>
                 <div class="form-group row col-4">
                   <label for="price">HTM</label>
-                    <input type="text" name="price" id="price" class="form-control" placeholder="Masukan HTM">
+                    <input type="text" name="price" id="price" value="{{old('price')}}" class="form-control" placeholder="Masukan HTM">
                 </div>
               </div>
                 <div class="form-group">
                   <label for="">Deskripsi</label>
-                  <textarea name="description" class="form-control" id="description" rows="10" cols="20" required></textarea>
+                  <textarea name="description" class="form-control" id="description" rows="10" cols="20" required>{{old('description')}}</textarea>
                 </div>
                 <div class="row mt-4">
                 <div class="form-group col-6">
@@ -102,7 +106,7 @@
                 <div class="mb-4">
                   <div id="map2" class="dashboard-map"></div>
                 </div>
-                <input class="btn btn-primary" type="submit" value="Submit">
+                <input class="btn btn-primary" type="submit" value="Simpan">
               </fieldset>
             </form>
           </div>
