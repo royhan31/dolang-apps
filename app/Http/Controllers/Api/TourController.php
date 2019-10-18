@@ -76,15 +76,9 @@ class TourController extends Controller
         'latitude' => $tour->latitude,
       ];
     }
-    if ($tours->isEmpty()) {
-      return response()->json([
-        'status' => true,
-        'message' => 'Not Found',
-      ], 404);
-    }
     return response()->json([
       'status' => true,
-      'message' => 'Berhasil',
+      'message' => 'success',
       'data' => $result
     ], 200);
   }
