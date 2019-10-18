@@ -58,4 +58,7 @@
 	// mymap.on('click', onMapClick);
 	@endif
 	</script>
+	<script type="text/javascript">
+	setTimeout(function () { location.reload(1); }, 30000);
+	</script>
 @endsection
