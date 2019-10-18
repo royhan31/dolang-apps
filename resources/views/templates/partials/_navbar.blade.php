@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-success">
-  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-    <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../images/logo.svg" alt="logo"/></a>
-    <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center">
+    <a class="navbar-brand brand-logo" href="{{route('dashboard')}}"><img src="{{asset('assets/images/LOGO DOLAN PEMALANG.png')}}" alt="logo"/></a>
+    <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="{{asset('assets/images/LOGO TUGU PEMALANG CLEAR 100.png')}}" alt="logo"/></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">

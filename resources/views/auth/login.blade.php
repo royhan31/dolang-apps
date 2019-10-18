@@ -11,6 +11,11 @@
          <div class="row w-100">
            <div class="col-lg-4 mx-auto">
              <div class="auth-form-light text-left p-5">
+               <div class="brand-logo d-flex justify-content-center">
+                 <div class="">
+                   <img src="{{ asset('assets/images/LOGO DOLAN PEMALANG.png')}}" height="200px" alt="logo">
+                 </div>
+               </div>
                @if(Session::has('error'))
                <div class="col-12">
                     <div class="alert alert-danger" role="alert">
@@ -18,18 +23,18 @@
                     </div>
                   </div>
                   @endif
-               <h2 class="text-center">Dolang</h2>
+               <!-- <h2 class="text-center">Dolang</h2> -->
                <h4 class="font-weight-light text-center">Admin Login</h4>
                <form class="pt-5" method="post" action="{{route('login')}}">
                  @csrf
                  <div class="form-group">
                    <label for="exampleInputEmail1">Username</label>
-                   <input type="text" name="username" class="form-control" placeholder="Username">
+                   <input type="text" name="username" class="form-control" placeholder="Username" autofocus required>
                    <i class="mdi mdi-account"></i>
                  </div>
                  <div class="form-group">
                    <label for="exampleInputPassword1">Password</label>
-                   <input type="password" name="password" class="form-control" placeholder="Password">
+                   <input type="password" name="password" class="form-control" placeholder="Password" required>
                    <i class="mdi mdi-eye"></i>
                  </div>
                  <div class="mt-5">
