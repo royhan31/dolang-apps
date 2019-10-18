@@ -85,10 +85,10 @@ class TourController extends Controller
 
   public function search(Request $request){
     $search = $request->search;
-    
-    $tours = Tour::where('name','LIKE','%' . strtolower($search) . '%')
+
+    $tours = Tour::where('name','LIKE','%' .$search. '%')
             ->orWhere('category','LIKE','%' . strtolower($search) . '%')
-            ->orWhere('region','LIKE','%' . strtolower($search) . '%')
+            // ->orWhere('region','LIKE','%' . strtolower($search) . '%')
             ->get();
           $result = array();
           foreach ($tours as $tour) {
