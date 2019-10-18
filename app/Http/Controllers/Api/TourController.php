@@ -87,7 +87,7 @@ class TourController extends Controller
     $search = $request->search;
 
     $tours = Tour::where('name','LIKE','%' .$search. '%')
-            ->orWhere('category','LIKE','%' . strtolower($search) . '%')
+            // ->orWhere('category','LIKE','%' . strtolower($search) . '%')
             // ->orWhere('region','LIKE','%' . strtolower($search) . '%')
             ->get();
           $result = array();
